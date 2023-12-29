@@ -5,7 +5,7 @@ Description=LCD Display
 User=root
 Group=root
 Restart=on-failure
-ExecStart=/<path-to-script>/lcd-control.ksh
+ExecStart=~/QnapFreeLCD/lcd-control.ksh
 
 [Install]
 WantedBy=multi-user.target
