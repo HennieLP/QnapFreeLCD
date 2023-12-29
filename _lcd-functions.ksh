@@ -63,7 +63,7 @@ set -A ROW
 INDEX=${#ROW[@]}
 # query
 HOST="$(hostname)"
-IP=$(ifconfig | grep "inet addr" | cut -d: -f2 | cut -f 1 -d " " | grep -v "127.0.")
+IP=$(hostname -i)
 # result
 ROW[${INDEX}]="${HOST}"
 (( INDEX ++ ))
