@@ -235,7 +235,7 @@ PREV_IDLE=0
 # result
 ROW[${INDEX}]="Uptime"
 (( INDEX ++ ))
-ROW[${INDEX}]=$(uptime | grep -ohe 'up .*' | sed 's/,//g' | awk '{ print $2" "$3 }')
+ROW[${INDEX}]=$(uptime | grep -ohe 'up .*' | sed 's/,//g' | awk '{ print $2}')
 (( INDEX ++ ))
 
 #-------------------------------------------------------------------------------
