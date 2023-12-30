@@ -244,12 +244,12 @@ ROW[${INDEX}]=$(uptime | grep -ohe 'up .*' | sed 's/,//g' | awk '{ print $2" "$3
 #-------------------------------------------------------------------------------
 #
 # get current index count as start value
-INDEX=${#ROW[@]}
+#INDEX=${#ROW[@]}
 # query
-PREV_TOTAL=0
-PREV_IDLE=0
+#PREV_TOTAL=0
+#PREV_IDLE=0
 # result
-ROW[${INDEX}]="Last Updated"
-(( INDEX ++ ))
-ROW[${INDEX}]=$(date +"%T %D")
-(( INDEX ++ ))
+#ROW[${INDEX}]="Last Updated"
+#(( INDEX ++ ))
+#ROW[${INDEX}]=$(date +"%T %D")
+#(( INDEX ++ ))
