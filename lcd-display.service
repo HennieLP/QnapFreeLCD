@@ -1,11 +1,13 @@
 [Unit]
 Description=LCD Display
+After=network.target
 
 [Service]
 User=root
 Group=root
-Restart=on-failure
+Restart=always
 ExecStart=ksh /root/QnapFreeLCD/lcd-control.ksh
+WorkingDirectory=/root/QnapFreeLCD
 
 [Install]
 WantedBy=multi-user.target
