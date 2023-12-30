@@ -75,25 +75,25 @@ ROW[${INDEX}]="${IP}"
 #-------------------------------------------------------------------------------
 #
 # get current index count as start value
-INDEX=${#ROW[@]}
-# query
-OS_LINE="Unknown";
-if [ -f /etc/lsb-release ];then
-	OS_LINE=$(cat /etc/lsb-release | grep -i DISTRIB_DESCRIPTION | cut -d "\"" -f 2)
-elif [ -f /etc/os-release ];then
-	echo "/etc/lsb-release not found, using /etc/os-release !"
-	OS_NAME=$(cat /etc/os-release | grep ^ID= | cut -c 4-)
-	OS_VERSION=$(cat /etc/os-release | grep -i ^Version= | cut -d "\"" -f 2)
-	OS_LINE="$OS_NAME $OS_VERSION"
-else
-	echo "Could not find proper file to retreive OS info."
-fi
-#kernel info
-KERNEL=$(uname -r)
-# result
-ROW[${INDEX}]=$OS_LINE
-(( INDEX ++ ))
-ROW[${INDEX}]="${KERNEL}"
+#INDEX=${#ROW[@]}
+## query
+#OS_LINE="Unknown";
+#if [ -f /etc/lsb-release ];then
+#	OS_LINE=$(cat /etc/lsb-release | grep -i DISTRIB_DESCRIPTION | cut -d "\"" -f 2)
+#elif [ -f /etc/os-release ];then
+#	echo "/etc/lsb-release not found, using /etc/os-release !"
+#	OS_NAME=$(cat /etc/os-release | grep ^ID= | cut -c 4-)
+#	OS_VERSION=$(cat /etc/os-release | grep -i ^Version= | cut -d "\"" -f 2)
+#	OS_LINE="$OS_NAME $OS_VERSION"
+#else
+#	echo "Could not find proper file to retreive OS info."
+#fi
+##kernel info
+#KERNEL=$(uname -r)
+## result
+#ROW[${INDEX}]=$OS_LINE
+#(( INDEX ++ ))
+#ROW[${INDEX}]="${KERNEL}"
 
 #-------------------------------------------------------------------------------
 # 3. root disk space
