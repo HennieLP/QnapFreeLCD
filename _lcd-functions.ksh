@@ -223,7 +223,23 @@ ROW[${INDEX}]=$(cat /proc/loadavg | cut -d " " -f 1,2,3)
 (( INDEX ++ ))
 
 #-------------------------------------------------------------------------------
-# 7. update
+# 7. CPU tmp
+# display uptime
+#-------------------------------------------------------------------------------
+#
+# get current index count as start value
+INDEX=${#ROW[@]}
+# query
+PREV_TOTAL=0
+PREV_IDLE=0
+# result
+ROW[${INDEX}]="CPU Temperature"
+(( INDEX ++ ))
+ROW[${INDEX}]=$(sensors coretemp-isa-0000 | grep -ohe 'Core 0.*'| sed 's/,//g'| awk '{ print $3}')
+(( INDEX ++ ))
+
+#-------------------------------------------------------------------------------
+# 8. update
 # display uptime
 #-------------------------------------------------------------------------------
 #
@@ -237,6 +253,8 @@ ROW[${INDEX}]="Uptime"
 (( INDEX ++ ))
 ROW[${INDEX}]=$(uptime | grep -ohe 'up .*' | sed 's/,//g' | awk '{ print $2}')
 (( INDEX ++ ))
+
+
 
 #-------------------------------------------------------------------------------
 # 8. last update
