@@ -235,7 +235,7 @@ PREV_IDLE=0
 # result
 ROW[${INDEX}]="CPU Temperature"
 (( INDEX ++ ))
-ROW[${INDEX}]=$(sensors coretemp-isa-0000 | grep -ohe 'Core 0.*'| sed 's/,//g'| awk '{ print $3}')
+ROW[${INDEX}]=$(sensors coretemp-isa-0000 | grep -ohe 'Core 0.*' | sed 's/,//g' | awk '{ print $3}' | sed 's/°C/C/')
 (( INDEX ++ ))
 
 #-------------------------------------------------------------------------------
